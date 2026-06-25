@@ -1,0 +1,77 @@
+{
+  "name": "docusaurus-plugin-mcp",
+  "version": "0.1.0",
+  "description": "Docusaurus plugin that exposes your docs and OpenAPI specs as an MCP server, so AI agents can search the docs and inspect API endpoints.",
+  "keywords": [
+    "docusaurus",
+    "docusaurus-plugin",
+    "mcp",
+    "model-context-protocol",
+    "openapi",
+    "documentation",
+    "ai",
+    "llm",
+    "claude",
+    "cursor"
+  ],
+  "license": "MIT",
+  "author": "mcclowes <max@mcclowes.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcclowes/docusaurus-plugin-mcp.git"
+  },
+  "bugs": "https://github.com/mcclowes/docusaurus-plugin-mcp/issues",
+  "homepage": "https://github.com/mcclowes/docusaurus-plugin-mcp#readme",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./server": {
+      "types": "./dist/adapters.d.ts",
+      "import": "./dist/adapters.js",
+      "require": "./dist/adapters.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "docusaurus-plugin-mcp": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "gray-matter": "^4.0.3",
+    "minisearch": "^7.1.2",
+    "yaml": "^2.6.0",
+    "zod": "^3.25.0"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@docusaurus/core": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
