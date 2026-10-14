@@ -94,7 +94,7 @@ Static hosting can't serve a live endpoint, so add one serverless function that 
 ```ts
 // api/mcp.ts
 import { createNodeHandler } from 'docusaurus-plugin-mcp/server';
-import snapshot from '../build/mcp/snapshot.json' assert { type: 'json' };
+import snapshot from '../build/mcp/snapshot.json' with { type: 'json' };
 
 export default createNodeHandler(snapshot, { name: 'my-docs', version: '1.0.0' });
 ```
