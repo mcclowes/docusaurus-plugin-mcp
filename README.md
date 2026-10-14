@@ -131,6 +131,13 @@ import { createMcpServer, createNodeHandler, loadSnapshot } from 'docusaurus-plu
 - **Refreshing** happens at build. Rebuild to pick up doc changes. The CLI's build-on-the-fly mode is for dev.
 - **Runtime** targets Node. Web-standard/edge runtimes aren't supported yet.
 
+## Development
+
+The source checkout overrides only tsup's esbuild dependency to 0.28.2 for its
+security patch. Remove the override when tsup accepts a patched esbuild release
+without it. Build-tool verification and remaining runtime parser findings are
+tracked in [#17](https://github.com/mcclowes/docusaurus-plugin-mcp/issues/17).
+
 ## License
 
 MIT

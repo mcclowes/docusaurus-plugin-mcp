@@ -73,5 +73,10 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "overrides": {
+    "tsup": {
+      "esbuild": "0.28.2"
+    }
   }
 }
