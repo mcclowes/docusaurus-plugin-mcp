@@ -94,7 +94,7 @@ Static hosting can't serve a live endpoint, so add one serverless function that 
 ```ts
 // api/mcp.ts
 import { createNodeHandler } from 'docusaurus-plugin-mcp/server';
-import snapshot from '../build/mcp/snapshot.json' assert { type: 'json' };
+import snapshot from '../build/mcp/snapshot.json' with { type: 'json' };
 
 export default createNodeHandler(snapshot, { name: 'my-docs', version: '1.0.0' });
 ```
@@ -130,6 +130,13 @@ import { createMcpServer, createNodeHandler, loadSnapshot } from 'docusaurus-plu
 - **Doc URLs** are derived from `routeBasePath` plus the file path or `slug` frontmatter. That covers the common cases; exotic routing or path aliases may not match exactly.
 - **Refreshing** happens at build. Rebuild to pick up doc changes. The CLI's build-on-the-fly mode is for dev.
 - **Runtime** targets Node. Web-standard/edge runtimes aren't supported yet.
+
+## Development
+
+The source checkout overrides only tsup's esbuild dependency to 0.28.2 for its
+security patch. Remove the override when tsup accepts a patched esbuild release
+without it. Build-tool verification and remaining runtime parser findings are
+tracked in [#17](https://github.com/mcclowes/docusaurus-plugin-mcp/issues/17).
 
 ## License
 
